@@ -1,0 +1,23 @@
+config:
+  node: 'sample'
+  check_interval: 60 #检测时间间隔，单位秒，默认60=1分钟
+  notify_interval: 600 #同一个异常通知间隔，单位秒，默认600=10分钟
+  default_notifier: #默认通知方式
+    - type: wechat_bot
+      config:
+        url: [ https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=${ REPLACE_HERE } ]
+    - type: sms
+      config:
+        url: ${REPLACE_HERE}
+        app_key: ${REPLACE_HERE}
+        app_secret: ${REPLACE_HERE}
+        sender: ${REPLACE_HERE}
+        template_id: ${REPLACE_HERE}
+        signature: ${REPLACE_HERE}
+        receiver: ${REPLACE_HERE}
+check_sites:
+  - name: sample
+    checker:
+      - type: http_check
+        url: ${REPLACE_HERE}
+        response_check: ${REPLACE_HERE} #response body

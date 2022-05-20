@@ -1,0 +1,9 @@
+version: "3.9"
+services:
+  cloud-eye:
+    image: youuy/cloud-eye:latest
+    build:
+      context: .
+    volumes:
+      - ./config.yaml:/app/config.yaml
+    restart: always
